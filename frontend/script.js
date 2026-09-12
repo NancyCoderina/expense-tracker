@@ -57,9 +57,9 @@ async function getExpenses() {
 
     const filteredExpenses = expenses.filter(expense => {
 
-        const matchesSearch = expense.title
-            .toLowerCase()
-            .includes(searchText)
+        const matchesSearch = (expense.title || "")
+    .toLowerCase()
+    .includes(searchText)
 
 
         const matchesCategory =
