@@ -5,10 +5,7 @@ let editingExpenseId = null
 const searchInput = document.getElementById("searchInput")
 const filterCategory = document.getElementById("filterCategory")
 
-
-// ====================
 // ADD EXPENSE
-// ====================
 
 expenseForm.addEventListener("submit", async function (event) {
 
@@ -18,7 +15,7 @@ expenseForm.addEventListener("submit", async function (event) {
     const amount = document.getElementById("amount").value
     const category = document.getElementById("category").value
 
-    const response = await fetch("http://localhost:3000/api/expenses", {
+    const response = await fetch("https://expense-tracker-ida1.onrender.com/api/expenses", {
 
         method: "POST",
 
@@ -43,13 +40,10 @@ expenseForm.addEventListener("submit", async function (event) {
 })
 
 
-// ====================
 // GET EXPENSES
-// ====================
-
 async function getExpenses() {
 
-    const response = await fetch("http://localhost:3000/api/expenses")
+    const response = await fetch("https://expense-tracker-ida1.onrender.com/api/expenses")
 
     const expenses = await response.json()
 
@@ -111,11 +105,7 @@ async function getExpenses() {
             </div>
         `
 
-
-        // ====================
         // DELETE BUTTON
-        // ====================
-
         const deleteButton = document.createElement("button")
 
         deleteButton.innerText = "Delete"
@@ -124,7 +114,7 @@ async function getExpenses() {
         deleteButton.addEventListener("click", async function () {
 
             await fetch(
-                `http://localhost:3000/api/expenses/${expense._id}`,
+                `https://expense-tracker-ida1.onrender.com/api/expenses/${expense._id}`,
                 {
                     method: "DELETE"
                 }
@@ -133,11 +123,7 @@ async function getExpenses() {
             getExpenses()
         })
 
-
-        // ====================
         // EDIT BUTTON
-        // ====================
-
         const editButton = document.createElement("button")
 
         editButton.innerText = "Edit"
@@ -167,24 +153,17 @@ async function getExpenses() {
 
 
         // Buttons ko card me add karo
-
         div.appendChild(deleteButton)
-
         div.appendChild(editButton)
 
 
         // Card ko list me add karo
-
         expenseList.appendChild(div)
 
     })
 }
 
-
-// ====================
 // UPDATE EXPENSE
-// ====================
-
 const editForm = document.getElementById("editForm")
 
 
@@ -201,7 +180,7 @@ editForm.addEventListener("submit", async function (event) {
 
 
     await fetch(
-        `http://localhost:3000/api/expenses/${editingExpenseId}`,
+        `https://expense-tracker-ida1.onrender.com/api/expenses/${editingExpenseId}`,
         {
 
             method: "PUT",
@@ -220,41 +199,25 @@ editForm.addEventListener("submit", async function (event) {
 
 
     // Edit form hide karo
-
     document.getElementById("editFormContainer").style.display = "none"
 
 
     // Updated list load karo
-
     getExpenses()
 
 })
-
-
-// ====================
 // SEARCH
-// ====================
-
 searchInput.addEventListener("input", function () {
 
     getExpenses()
 
 })
-
-
-// ====================
 // CATEGORY FILTER
-// ====================
-
 filterCategory.addEventListener("change", function () {
 
     getExpenses()
 
 })
 
-
-// ====================
 // PAGE LOAD
-// ====================
-
 getExpenses()
