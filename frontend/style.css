@@ -1,0 +1,231 @@
+body {
+    font-family: Arial, sans-serif;
+    background: linear-gradient(120deg, #833ab4, #fd1d1d, #e3df08);
+    max-width: 700px;
+    margin: 0 auto;
+    padding: 40px 20px;
+}
+
+h1 {
+    text-align: center;
+    font-size: 40px;
+    margin-bottom: 30px;
+}
+
+form {
+    background: white;
+    padding: 20px;
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap;
+}
+input{
+    padding:10px;
+ flex:1;
+}
+
+button{
+    padding:10px;
+    cursor:pointer;
+}
+.expense-card {
+    background: white;
+    padding: 18px;
+    margin: 12px 0;
+    border-radius: 12px;
+    box-shadow: 0 3px 10px rgba(0,0,0,0.08);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.expense-card button {
+    margin-left: 8px;
+    padding: 8px 14px;
+    border: none;
+    border-radius: 7px;
+    cursor: pointer;
+    font-weight: bold;
+    transition: 0.2s;
+}
+
+.expense-card button:hover {
+    transform: translateY(-2px);
+}
+.expense-card button:first-of-type {
+    background-color: #f44336;
+    color: white;
+}
+
+.expense-card button:last-of-type {
+    background-color: #4CAF50;
+    color: white;
+}
+#totalAmount{
+    font-size:28px;
+    font-weight:bold;
+}
+#expenseForm {
+    margin-bottom: 25px;
+}
+
+#expenseForm button {
+    background-color: #333;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    padding: 10px 18px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: 0.2s;
+}
+
+#expenseForm button:hover {
+    transform: translateY(-2px);
+}
+#expenseForm input {
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    outline: none;
+}
+
+#expenseForm input:focus {
+    border-color: #333;
+}
+h2:has(#totalAmount) {
+    background: white;
+    padding: 20px;
+    border-radius: 12px;
+    margin-top: 30px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+}
+#category {
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    background: white;
+    font-size: 16px;
+}
+.category-badge {
+    display: inline-block;
+    padding: 5px 10px;
+    border-radius: 20px;
+    background: #e8f0fe;
+    font-size: 13px;
+    font-weight: bold;
+}
+.expense-card h3 {
+    margin: 0 0 8px 0;
+}
+
+.expense-card p {
+    margin: 0 0 8px 0;
+    font-size: 18px;
+    font-weight: bold;
+}
+h2 {
+    color: #333;
+}
+
+#expenseList {
+    margin-top: 20px;
+}
+@media (max-width: 600px) {
+
+    body {
+        padding: 20px 15px;
+    }
+
+    h1 {
+        font-size: 32px;
+    }
+
+    #expenseForm {
+        flex-direction: column;
+    }
+
+    #expenseForm input,
+    #expenseForm select,
+    #expenseForm button {
+        width: 100%;
+        box-sizing: border-box;
+    }
+
+    .expense-card {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 12px;
+    }
+}
+/* Final UI Polish */
+
+h1 {
+    letter-spacing: 1px;
+}
+
+h2 {
+    margin-top: 25px;
+}
+
+.expense-card {
+    transition: 0.2s;
+}
+
+.expense-card:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 6px 16px rgba(0,0,0,0.12);
+}
+
+.category-badge {
+    text-transform: capitalize;
+}
+
+.expense-card button:active {
+    transform: scale(0.95);
+}
+
+/* Edit Form */
+
+#editFormContainer {
+    background: white;
+    padding: 20px;
+    margin-top: 25px;
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.12);
+}
+
+#editFormContainer h2 {
+    margin-top: 0;
+}
+
+#editForm {
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap;
+}
+
+#editForm input,
+#editForm select {
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+}
+
+#editForm button {
+    padding: 10px 18px;
+    border: none;
+    border-radius: 8px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+#editForm button[type="submit"] {
+    background: #4CAF50;
+    color: white;
+}
+
+#cancelEdit {
+    background: #f44336;
+    color: white;
+}
